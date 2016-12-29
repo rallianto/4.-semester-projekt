@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            local:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp">
+    <!-- Søge overskrift -->
+        <TextView
+            android:text="Find- og byd på projekter"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/textView1"
+            android:textColor="#ff000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    <!-- Landsdel -->
+        <TextView
+            android:text="Landsdel:"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ff000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Mvx.MvxSpinner
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            local:MvxBind="ItemsSource ProvincesList" />
+    <!-- Valg af erhversområder -->
+        <TextView
+            android:layout_marginTop="10dp"
+            android:text="Projektet omfavner disse erhverv:"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ff000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_marginRight="5dp"
+                android:text="Murer"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#ff000000"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                local:MvxBind="Checked Mason" />
+            <CheckBox
+                android:layout_marginRight="5dp"
+                android:text="Tømrer"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#ff000000"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                local:MvxBind="Checked Carpenter" />
+            <CheckBox
+                android:layout_marginRight="5dp"
+                android:text="VVS"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#ff000000"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                local:MvxBind="Checked Plumber" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_marginRight="5dp"
+                android:text="Elektrikker"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#ff000000"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                local:MvxBind="Checked Electrician" />
+            <CheckBox
+                android:layout_marginRight="5dp"
+                android:text="Transport"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#ff000000"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                local:MvxBind="Checked Transport" />
+            <CheckBox
+                android:layout_marginRight="5dp"
+                android:text="Andet"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#ff000000"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                local:MvxBind="Checked Miscellaneous" />
+        </LinearLayout>
+    <!-- Søge knap -->
+        <Button
+            android:text="Søg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click SearchCommand" />
+    </LinearLayout>
+<!-- Liste -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Mvx.MvxListView
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            local:MvxBind="ItemsSource Projects;ItemClick ItemSelectedCommand"
+            local:MvxItemTemplate="@layout/item_project" />
+    </RelativeLayout>
+</LinearLayout>

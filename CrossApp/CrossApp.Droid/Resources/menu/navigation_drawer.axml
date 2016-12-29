@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:local="http://schemas.android.com/apk/res-auto">
+
+  <group android:id="@+id/nav_items">
+    <item
+        android:id="@+id/nav_home"
+        android:title="Hjem" />
+  </group>
+
+  <item android:title="Mine projekter">
+
+
+    <menu>
+
+      <item
+          android:id="@+id/nav_create_project"
+          android:title="Opret projekt" />
+      <item
+        android:id="@+id/nav_bid_project"
+        android:title="Byd på projekt" />
+    </menu>
+  </item>
+
+
+  <group android:id="@+id/nav_footer">
+    <item
+        android:id="@+id/nav_login"
+        android:title="Log ind" />
+    
+    <item
+        android:id="@+id/nav_helpfeedback"
+        android:title="Opret bruger" />
+  </group>
+
+</menu>
